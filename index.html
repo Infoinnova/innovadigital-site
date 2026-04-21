@@ -144,6 +144,14 @@
       margin-top: 4px;
     }
 
+    .schedule-link {
+        display: block;
+        margin-top: 20px;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
     footer {
       padding: 40px 0;
       border-top: 1px solid rgba(0,0,0,0.1);
@@ -176,7 +184,6 @@
     <p>We turn complexity into high-impact digital systems.</p>
     
     <div class="services-grid">
-      <!-- Card 1 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Platforms">
         <div class="card-content">
@@ -184,7 +191,6 @@
           <p>Marketplaces and portals designed to scale your operation.</p>
         </div>
       </div>
-      <!-- Card 2: FIXED IMAGE LINK -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Systems">
         <div class="card-content">
@@ -192,7 +198,6 @@
           <p>Document management and internal processes under full control.</p>
         </div>
       </div>
-      <!-- Card 3 -->
       <div class="card">
         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=500&q=80" alt="AI">
         <div class="card-content">
@@ -219,7 +224,14 @@
         Talk with an expert
         <small>Book a diagnostic session</small>
       </button>
+      <button class="btn-action" onclick="goToBooking()">
+        IT Support
+        <small>Technical assistance and maintenance</small>
+      </button>
     </div>
+
+    <!-- Enlace adicional como solicitado, configurado para popup -->
+    <a href="#" class="schedule-link" onclick="goToBooking(); return false;">Schedule online</a>
   </section>
 </main>
 
@@ -229,7 +241,20 @@
 
 <script>
   function goToBooking() {
-    window.open("https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true", "_blank");
+    // URL con localización forzada a inglés británico
+    const url = "https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true&locale=en-GB";
+    
+    // Configuración de la ventana emergente (Popup)
+    const width = 800;
+    const height = 900;
+    const left = (window.innerWidth / 2) - (width / 2);
+    const top = (window.innerHeight / 2) - (height / 2);
+
+    window.open(
+      url, 
+      "BookingPopup", 
+      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
+    );
   }
 </script>
 
