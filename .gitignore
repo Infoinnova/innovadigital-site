@@ -1,0 +1,4 @@
+node_modules
+.env
+innovadigital-backend/
+package-lock.json
