@@ -51,53 +51,109 @@
     </div>
 
     <div class="cta-grid">
-      <button class="btn-action" onclick="goToBooking()">
-        Launch a platform
-        <small>Marketplace or digital service</small>
-      </button>
-      <button class="btn-action" onclick="goToBooking()">
-        Organize my operation
-        <small>Document processes and structure</small>
-      </button>
-      <button class="btn-action" onclick="goToBooking()">
-        Integrate AI
-        <small>Automation and helpful assistants</small>
-      </button>
-      <button class="btn-action" onclick="goToBooking()">
-        Talk with an expert
-        <small>Book a diagnostic session</small>
-      </button>
-      <button class="btn-action" onclick="goToBooking()">
-        IT Support
-        <small>Technical assistance and maintenance</small>
-      </button>
+      <button class="btn-action" onclick="goToBooking()">Launch a platform<small>Marketplace or digital service</small></button>
+      <button class="btn-action" onclick="goToBooking()">Organize my operation<small>Document processes and structure</small></button>
+      <button class="btn-action" onclick="goToBooking()">Integrate AI<small>Automation and helpful assistants</small></button>
+      <button class="btn-action" onclick="goToBooking()">Talk with an expert<small>Book a diagnostic session</small></button>
+      <button class="btn-action" onclick="goToBooking()">IT Support<small>Technical assistance and maintenance</small></button>
     </div>
 
-    <!-- Enlace adicional como solicitado, configurado para popup -->
     <a href="#" class="schedule-link" onclick="goToBooking(); return false;">Schedule online</a>
   </section>
-</main>
+
+  <!-- FORM SECTION ADAPTED -->
+  <!-- Botón Flotante de WhatsApp -->
+<div id="whatsapp-trigger" onclick="toggleWhatsAppModal()" style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.3s ease;">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.591 5.408 0 9.811-4.403 9.811-9.812 0-5.403-4.403-9.809-9.812-9.809-5.41 0-9.812 4.406-9.812 9.809 0 2.035.548 3.53 1.51 5.259l-.994 3.605 3.704-.972zm10.177-6.209c-.333-.167-1.969-.974-2.271-1.084-.303-.11-.524-.167-.744.167-.221.333-.854 1.084-1.047 1.305-.193.221-.387.25-.72.083-.333-.167-1.407-.518-2.68-1.653-1.006-.897-1.684-2.005-1.884-2.338-.199-.333-.021-.513.145-.679.15-.15.333-.389.5-.584.166-.195.222-.333.333-.556.111-.221.056-.417-.028-.584-.084-.167-.744-1.804-1.019-2.473-.267-.65-.54-.561-.744-.571l-.634-.008c-.221 0-.58.083-.884.417-.303.333-1.159 1.139-1.159 2.778 0 1.639 1.187 3.222 1.353 3.444.166.222 2.335 3.566 5.657 5.003.79.341 1.407.545 1.888.702.793.253 1.515.217 2.086.131.637-.095 1.969-.806 2.244-1.584.275-.778.275-1.445.193-1.584-.083-.139-.303-.222-.636-.389z"/></svg>
+</div>
+
+<!-- Modal del Formulario (Oculto por defecto) -->
+<div id="whatsapp-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center;">
+  <div style="background: white; width: 90%; max-width: 500px; border-radius: 24px; padding: 35px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+    
+    <span onclick="toggleWhatsAppModal()" style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #666;">&times;</span>
+    
+    <h2 style="text-align: center; margin-bottom: 25px; font-size: 24px; font-weight: 700;">
+      Contact <span style="color: #0066cc;"></span>
+    </h2>
+
+    <form id="whatsappForm" style="display: flex; flex-direction: column; gap: 15px;">
+      <input name="name" placeholder="Full Name" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px;">
+      
+      <div style="display: flex; gap: 10px;">
+        <input name="phone" placeholder="Phone" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; flex: 1;">
+        <input name="email" type="email" placeholder="Email" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; flex: 1;">
+      </div>
+
+      <label style="font-size: 13px; font-weight: 600; color: #666;">Service needed:</label>
+      <select name="concern" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; background: white;">
+        <option>Launch a platform</option>
+        <option>Organize my operation</option>
+        <option>Integrate AI</option>
+        <option>Talk with an expert</option>
+        <option>IT Support</option>
+      </select>
+
+      <label style="font-size: 13px; font-weight: 600; color: #666;">Urgency:</label>
+      <select name="urgency" style="padding: 12px; border-radius: 10px; border: 1px solid #0066cc; background: white;">
+        <option>Immediate</option>
+      </select>
+
+      <textarea name="notes" placeholder="Briefly describe your project..." style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; min-height: 80px; resize: none;"></textarea>
+
+      <button type="submit" style="background-color: #0066cc; color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 10px;">
+        Open WhatsApp Chat
+      </button>
+    </form>
+  </div>
+</div>
 
 <footer>
   <p>© 2026 Innova Digital Ltd · London, United Kingdom</p>
 </footer>
 
 <script>
-  function goToBooking() {
-    // URL con localización forzada a inglés británico
-    const url = "https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true&locale=en-GB";
-    
-    // Configuración de la ventana emergente (Popup)
-    const width = 800;
-    const height = 900;
-    const left = (window.innerWidth / 2) - (width / 2);
-    const top = (window.innerHeight / 2) - (height / 2);
+  // Función para abrir/cerrar el modal
+  function toggleWhatsAppModal() {
+    const modal = document.getElementById('whatsapp-modal');
+    if (modal.style.display === 'none' || modal.style.display === '') {
+      modal.style.display = 'flex';
+    } else {
+      modal.style.display = 'none';
+    }
+  }
 
-    window.open(
-      url, 
-      "BookingPopup", 
-      `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`
-    );
+  // Cerrar modal si hacen clic fuera de la caja blanca
+  window.onclick = function(event) {
+    const modal = document.getElementById('whatsapp-modal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // Lógica de envío a WhatsApp
+  document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    const phoneNumber = "447365928641"; 
+
+    const message = `*New Inquiry - Innova Digital Ltd*%0A%0A` +
+      `*Name:* ${data.name}%0A` +
+      `*Phone:* ${data.phone}%0A` +
+      `*Email:* ${data.email}%0A%0A` +
+      `*Service:* ${data.concern}%0A` +
+      `*Urgency:* ${data.urgency}%0A` +
+      `*Details:* ${data.notes || "None"}`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    toggleWhatsAppModal(); // Cierra el modal tras enviar
+  });
+
+  // Tu función original de Booking
+  function goToBooking() {
+    const url = "https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true&locale=en-GB";
+    window.open(url, "BookingPopup", "width=800,height=900,scrollbars=yes");
   }
 </script>
 
