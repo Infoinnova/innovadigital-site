@@ -3,140 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How we work | Innova Digital Ltd</title>
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --card-bg: rgba(255, 255, 255, 0.8);
-      --text-main: #1d1d1f;
-      --text-muted: #86868b;
-      --accent: #0066cc;
-      --glass: saturate(180%) blur(20px);
-      --font: "Segoe UI", "Selawik", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
-
-    body {
-      margin: 0;
-      font-family: var(--font);
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.5;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 22px;
-    }
-
-    .nav-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(245, 245, 247, 0.7);
-      backdrop-filter: var(--glass);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 52px;
-    }
-
-    .brand { font-weight: 600; font-size: 19px; letter-spacing: -0.5px; }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 14px;
-      margin-left: 24px;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-
-    .nav-links a:hover { opacity: 1; }
-
-    .hero {
-      padding: 80px 0 40px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 24px;
-      color: var(--text-muted);
-      max-width: 700px;
-      margin: 0 auto 60px;
-    }
-
-    /* Steps Styling */
-    .step-container { margin-bottom: 80px; }
-    
-    .step {
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      margin-bottom: 100px;
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 28px;
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-
-    .step:nth-child(even) { flex-direction: row-reverse; }
-
-    .step-number {
-      font-size: 100px;
-      font-weight: 800;
-      color: var(--accent);
-      opacity: 0.15;
-      line-height: 1;
-      min-width: 120px;
-    }
-
-    .step-info h2 { 
-      font-size: 32px; 
-      margin: 0 0 15px 0; 
-      letter-spacing: -0.02em;
-    }
-
-    .step-info p { 
-      font-size: 19px; 
-      color: var(--text-muted); 
-      margin: 0;
-      line-height: 1.6;
-    }
-
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid rgba(0,0,0,0.1);
-      color: var(--text-muted);
-      font-size: 12px;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 38px; }
-      .step { flex-direction: column !important; text-align: center; gap: 20px; padding: 30px; }
-      .step-number { font-size: 60px; min-width: auto; }
-    }
-  </style>
+  <title>Innova Digital Ltd | How we work</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="nav-header">
   <div class="container nav-content">
-    <div class="brand">Innova Digital</div>
+    <div class="brand">Innova Digital Ltd</div>
     <nav class="nav-links">
       <a href="index.html">Services</a>
       <a href="how.html" style="opacity: 1; font-weight: 600;">How we work</a>
@@ -145,34 +19,43 @@
 </header>
 
 <main class="container">
-  <div class="hero">
-    <h1>Our Method</h1>
-    <p>Clarity before code. Results before promises.</p>
-  </div>
-
-  <section class="step-container">
-    <div class="step">
-      <div class="step-number">01</div>
-      <div class="step-info">
-        <h2>Diagnosis</h2>
-        <p>We identify the bottleneck. We don't implement technology for the sake of trends, but as a strategic necessity to unlock your growth.</p>
+  <section class="hero">
+    <h1>Our Methodology</h1>
+    <p>We combine strategic architecture with agile execution to deliver scalable results.</p>
+    
+    <div class="services-grid">
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="card-content">
+          <h3 style="color: var(--accent);">01. Diagnosis</h3>
+          <p>We analyze your current operations to identify bottlenecks and opportunities for digital automation.</p>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="card-content">
+          <h3 style="color: var(--accent);">02. Architecture</h3>
+          <p>We design a custom system blueprint, selecting the right stack to ensure long-term scalability.</p>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="card-content">
+          <h3 style="color: var(--accent);">03. Deployment</h3>
+          <p>Iterative development with constant feedback, ensuring the final product fits your business perfectly.</p>
+        </div>
       </div>
     </div>
 
-    <div class="step">
-      <div class="step-number">02</div>
-      <div class="step-info">
-        <h2>Structure</h2>
-        <p>We design the system architecture. We define data flows, control points, and user experience before writing a single line of code.</p>
-      </div>
-    </div>
-
-    <div class="step">
-      <div class="step-number">03</div>
-      <div class="step-info">
-        <h2>Execution</h2>
-        <p>We deploy the solution in an agile way. Your platform or automation goes live with a focus on immediate impact.</p>
-      </div>
+    <div class="cta-grid">
+      <button class="btn-action" onclick="goToBooking()">
+        Book a discovery call
+        <small>Let's talk about your project</small>
+      </button>
+      <button class="btn-action" onclick="location.href='index.html'">
+        Back to services
+        <small>Explore what we can build</small>
+      </button>
     </div>
   </section>
 </main>
@@ -180,6 +63,18 @@
 <footer>
   <p>© 2026 Innova Digital Ltd · London, United Kingdom</p>
 </footer>
+
+<script>
+  function goToBooking() {
+    const url = "https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true&locale=en-GB";
+    const width = 800;
+    const height = 900;
+    const left = (window.innerWidth / 2) - (width / 2);
+    const top = (window.innerHeight / 2) - (height / 2);
+
+    window.open(url, "BookingPopup", `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`);
+  }
+</script>
 
 </body>
 </html>
