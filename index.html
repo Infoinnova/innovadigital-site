@@ -68,40 +68,51 @@
 </div>
 
 <!-- Modal del Formulario (Oculto por defecto) -->
-<div id="whatsapp-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center;">
-  <div style="background: white; width: 90%; max-width: 500px; border-radius: 24px; padding: 35px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+<!-- Modal del Formulario Responsive -->
+<div id="whatsapp-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; padding: 15px;">
+  <div style="background: white; width: 100%; max-width: 500px; border-radius: 24px; padding: 30px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); box-sizing: border-box;">
     
-    <span onclick="toggleWhatsAppModal()" style="position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #666;">&times;</span>
+    <span onclick="toggleWhatsAppModal()" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #666; line-height: 1;">&times;</span>
     
-    <h2 style="text-align: center; margin-bottom: 25px; font-size: 24px; font-weight: 700;">
-      Contact <span style="color: #0066cc;"></span>
+    <h2 style="text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: 700; color: #1d1d1f;">
+      Contact <span style="color: #0066cc;">Innova Digital</span>
     </h2>
 
-    <form id="whatsappForm" style="display: flex; flex-direction: column; gap: 15px;">
-      <input name="name" placeholder="Full Name" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px;">
+    <form id="whatsappForm" style="display: flex; flex-direction: column; gap: 12px;">
+      <!-- Nombre completo -->
+      <div style="display: flex; flex-direction: column;">
+        <input name="name" placeholder="Full Name" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; width: 100%; box-sizing: border-box;">
+      </div>
       
-      <div style="display: flex; gap: 10px;">
-        <input name="phone" placeholder="Phone" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; flex: 1;">
-        <input name="email" type="email" placeholder="Email" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 15px; flex: 1;">
+      <!-- Fila de Teléfono y Email (Se vuelve columna en celular automáticamente por el flex-wrap) -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input name="phone" placeholder="Phone" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; flex: 1; min-width: 200px; box-sizing: border-box;">
+        <input name="email" type="email" placeholder="Email" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; flex: 1; min-width: 200px; box-sizing: border-box;">
       </div>
 
-      <label style="font-size: 13px; font-weight: 600; color: #666;">Service needed:</label>
-      <select name="concern" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; background: white;">
-        <option>Launch a platform</option>
-        <option>Organize my operation</option>
-        <option>Integrate AI</option>
-        <option>Talk with an expert</option>
-        <option>IT Support</option>
-      </select>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 13px; font-weight: 600; color: #666;">Service needed:</label>
+        <select name="concern" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; background: white; font-size: 15px; width: 100%; box-sizing: border-box;">
+          <option>Launch a platform</option>
+          <option>Organize my operation</option>
+          <option>Integrate AI</option>
+          <option>Talk with an expert</option>
+          <option>IT Support</option>
+        </select>
+      </div>
 
-      <label style="font-size: 13px; font-weight: 600; color: #666;">Urgency:</label>
-      <select name="urgency" style="padding: 12px; border-radius: 10px; border: 1px solid #0066cc; background: white;">
-        <option>Immediate</option>
-      </select>
+      <div style="display: flex; flex-direction: column; gap: 5px;">
+        <label style="font-size: 13px; font-weight: 600; color: #666;">Urgency:</label>
+        <select name="urgency" style="padding: 12px; border-radius: 10px; border: 1.5px solid #0066cc; background: white; font-size: 15px; width: 100%; box-sizing: border-box;">
+          <option>Immediate</option>
+          <option>Next 30 days</option>
+          <option>Planning</option>
+        </select>
+      </div>
 
-      <textarea name="notes" placeholder="Briefly describe your project..." style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; min-height: 80px; resize: none;"></textarea>
+      <textarea name="notes" placeholder="Project details..." style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; min-height: 80px; resize: none; font-size: 15px; width: 100%; box-sizing: border-box;"></textarea>
 
-      <button type="submit" style="background-color: #0066cc; color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 10px;">
+      <button type="submit" style="background-color: #0066cc; color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; margin-top: 5px; width: 100%;">
         Open WhatsApp Chat
       </button>
     </form>
