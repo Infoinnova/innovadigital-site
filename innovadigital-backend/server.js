@@ -45,14 +45,10 @@ app.post("/api/sales-agent", async (req, res) => {
     }
 
     const response = await client.responses.create({
-      model: "gpt-4o",
       input: message,
-      extra_body: {
-        agent_reference: {
-          name: process.env.AZURE_AGENT_NAME,
-          version: process.env.AZURE_AGENT_VERSION,
-          type: "agent_reference",
-        },
+      agent_reference: {
+        name: process.env.AZURE_AGENT_NAME,
+        type: "agent_reference",
       },
     });
 
