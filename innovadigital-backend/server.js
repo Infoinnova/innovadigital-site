@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
+const OpenAI = require("openai");
 require("dotenv").config();
 
 const app = express();
@@ -9,6 +10,11 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3001;
+
+const client = new OpenAI({
+  apiKey: process.env.AZURE_AI_API_KEY,
+  baseURL: `${process.env.AZURE_AI_PROJECT_ENDPOINT}/openai/v1`,
+});
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
@@ -25,6 +31,43 @@ app.get("/", (req, res) => {
     ok: true,
     message: "Backend de Innova Digital funcionando",
   });
+});
+
+app.post("/api/sales-agent", async (req, res) => {
+  try {
+    const { message } = req.body;
+
+    if (!message) {
+      return res.status(400).json({
+        ok: false,
+        error: "message es obligatorio",
+      });
+    }
+
+    const response = await client.responses.create({
+      model: "gpt-4o",
+      input: message,
+      extra_body: {
+        agent_reference: {
+          name: process.env.AZURE_AGENT_NAME,
+          version: process.env.AZURE_AGENT_VERSION,
+          type: "agent_reference",
+        },
+      },
+    });
+
+    return res.json({
+      ok: true,
+      reply: response.output_text,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      ok: false,
+      error: error.message,
+    });
+  }
 });
 
 app.post("/contact", async (req, res) => {
@@ -50,13 +93,6 @@ Email: ${email}
 Mensaje:
 ${message}
       `,
-      html: `
-        <h2>Nuevo mensaje desde innovadigital.uk</h2>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${String(message).replace(/\n/g, "<br>")}</p>
-      `,
     };
 
     await transporter.sendMail(mailOptions);
@@ -66,16 +102,15 @@ ${message}
       message: "Correo enviado correctamente",
     });
   } catch (error) {
-    console.error("Error enviando correo:", error);
+    console.error(error);
 
     return res.status(500).json({
       ok: false,
-      error: "No se pudo enviar el correo",
-      detail: error.message,
+      error: error.message,
     });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
