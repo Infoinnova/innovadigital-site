@@ -3,76 +3,328 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innova Digital | How we work</title>
+  <title>Innova Digital Ltd | Services</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    #ai-trigger {
+      position: fixed;
+      bottom: 105px;
+      right: 30px;
+      background: #0066cc;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      z-index: 1000;
+    }
+
+    #ai-modal {
+      display: none;
+      position: fixed;
+      bottom: 175px;
+      right: 30px;
+      width: 380px;
+      max-width: calc(100% - 40px);
+      z-index: 2000;
+    }
+
+    .ai-box {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      position: relative;
+    }
+
+    .ai-close {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 26px;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .ai-box h2 {
+      text-align: center;
+      margin-bottom: 16px;
+      color: #1d1d1f;
+    }
+
+    .ai-message {
+      background: #eef5ff;
+      padding: 12px;
+      border-radius: 14px;
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .ai-user {
+      background: #0066cc;
+      color: white;
+    }
+
+    .ai-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .ai-options button,
+    .ai-actions button {
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .ai-options button {
+      background: #f1f4f8;
+      text-align: left;
+    }
+
+    .ai-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .ai-actions button:first-child {
+      background: #0066cc;
+      color: white;
+    }
+
+    .ai-actions button:last-child {
+      background: #25D366;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
 
 <header class="nav-header">
   <div class="container nav-content">
-    <div class="brand">Innova Digital</div>
+    <div class="brand">
+      <img src="assets/logo.png" alt="Innova Digital Logo" style="height: 80px; width: auto; vertical-align: middle; margin-right: 20px;">
+      <span>Innova Digital</span>
+    </div>
+
     <nav class="nav-links">
-      <a href="index.html">Services</a>
-      <a href="how.html" style="opacity: 1; font-weight: 600;">How we work</a>
+      <a href="index.html" style="opacity: 1; font-weight: 600;">Services</a>
+      <a href="how.html">How we work</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
   <section class="hero">
-    <h1><span class="highlight">Our Methodology</span></h1>
-    <p>We combine strategic architecture with agile execution to deliver scalable results.</p>
-    
+    <h1><span class="highlight">What we do</span></h1>
+    <p>We turn complexity into high-impact digital systems.</p>
+
     <div class="services-grid">
-      <!-- Step 1 -->
       <div class="card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80" alt="Platforms">
         <div class="card-content">
-          <h3 style="color: var(--accent);">01. Diagnosis</h3>
-          <p>We analyze your current operations to identify bottlenecks and opportunities for digital automation.</p>
+          <h3><span class="highlight">Platforms</span></h3>
+          <p>Marketplaces and portals designed to scale your operation.</p>
         </div>
       </div>
-      <!-- Step 2 -->
+
       <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Systems">
         <div class="card-content">
-          <h3 style="color: var(--accent);">02. Architecture</h3>
-          <p>We design a custom system blueprint, selecting the right stack to ensure long-term scalability.</p>
+          <h3><span class="highlight">Systems</span></h3>
+          <p>Document management and internal processes under full control.</p>
         </div>
       </div>
-      <!-- Step 3 -->
+
       <div class="card">
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=500&q=80" alt="AI">
         <div class="card-content">
-          <h3 style="color: var(--accent);">03. Deployment</h3>
-          <p>Iterative development with constant feedback, ensuring the final product fits your business perfectly.</p>
+          <h3><span class="highlight">AI & Autom</span></h3>
+          <p>Intelligent workflows that eliminate manual operational load.</p>
         </div>
       </div>
     </div>
 
     <div class="cta-grid">
-      <button class="btn-action" onclick="goToBooking()">
-        Book a discovery call
-        <small>Let's talk about your project</small>
-      </button>
-      <button class="btn-action" onclick="location.href='index.html'">
-        Back to services
-        <small>Explore what we can build</small>
-      </button>
+      <button class="btn-action" onclick="goToBooking()">Launch a platform<small>Marketplace or digital service</small></button>
+      <button class="btn-action" onclick="goToBooking()">Organize my operation<small>Document processes and structure</small></button>
+      <button class="btn-action" onclick="goToBooking()">Implement ISO Standards<small>Structure processes and quality control</small></button>
+      <button class="btn-action" onclick="goToBooking()">Integrate AI<small>Automation and helpful assistants</small></button>
+      <button class="btn-action" onclick="goToBooking()">Talk with an expert<small>Book a diagnostic session</small></button>
+      <button class="btn-action" onclick="goToBooking()">IT Support<small>Technical assistance and maintenance</small></button>
     </div>
+
+    <a href="#" class="schedule-link" onclick="goToBooking(); return false;">Schedule online</a>
   </section>
 </main>
+
+<!-- Botón flotante IA -->
+<div id="ai-trigger" onclick="toggleAIModal()">🤖</div>
+
+<!-- Modal IA -->
+<div id="ai-modal">
+  <div class="ai-box">
+    <span class="ai-close" onclick="toggleAIModal()">&times;</span>
+
+    <h2>AI Assistant</h2>
+
+    <div id="ai-messages">
+      <div class="ai-message">
+        Hi, I’m the Innova Digital assistant. What do you need help with today?
+      </div>
+    </div>
+
+    <div class="ai-options">
+      <button onclick="selectAIService('Launch a platform')">Launch a platform</button>
+      <button onclick="selectAIService('Organize my operation')">Organize my operation</button>
+      <button onclick="selectAIService('Implement ISO Standards')">Implement ISO Standards</button>
+      <button onclick="selectAIService('Integrate AI')">Integrate AI</button>
+      <button onclick="selectAIService('Talk with an expert')">Talk with an expert</button>
+      <button onclick="selectAIService('IT Support')">IT Support</button>
+    </div>
+
+    <div class="ai-actions">
+      <button onclick="goToBooking()">Schedule online</button>
+      <button onclick="openAIWhatsApp()">Open WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<!-- Botón flotante WhatsApp -->
+<div id="whatsapp-trigger" onclick="toggleWhatsAppModal()" style="position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654z"/>
+  </svg>
+</div>
+
+<!-- Modal WhatsApp -->
+<div id="whatsapp-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; padding: 15px;">
+  <div style="background: white; width: 100%; max-width: 500px; border-radius: 24px; padding: 30px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); box-sizing: border-box;">
+
+    <span onclick="toggleWhatsAppModal()" style="position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #666;">&times;</span>
+
+    <h2 style="text-align: center; margin-bottom: 20px; font-size: 22px; font-weight: 700; color: #1d1d1f;">
+      Contact
+    </h2>
+
+    <form id="whatsappForm" style="display: flex; flex-direction: column; gap: 12px;">
+      <input name="name" placeholder="Full Name" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; width: 100%;">
+
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <input name="phone" placeholder="Phone" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; flex: 1; min-width: 200px;">
+        <input name="email" type="email" placeholder="Email" required style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px; flex: 1; min-width: 200px;">
+      </div>
+
+      <label style="font-size: 13px; font-weight: 600; color: #666;">Service needed:</label>
+      <select name="concern" style="padding: 12px; border-radius: 10px; border: 1px solid #ddd;">
+        <option>Launch a platform</option>
+        <option>Organize my operation</option>
+        <option>Implement ISO Standards</option>
+        <option>Integrate AI</option>
+        <option>Talk with an expert</option>
+        <option>IT Support</option>
+      </select>
+
+      <label style="font-size: 13px; font-weight: 600; color: #666;">Urgency:</label>
+      <select name="urgency" style="padding: 12px; border-radius: 10px; border: 1.5px solid #0066cc;">
+        <option>Contact me today</option>
+      </select>
+
+      <textarea name="notes" placeholder="Project details..." style="padding: 12px; border-radius: 10px; border: 1px solid #ddd; min-height: 80px;"></textarea>
+
+      <button type="submit" style="background-color: #0066cc; color: white; padding: 16px; border: none; border-radius: 12px; font-weight: 600; font-size: 16px;">
+        Open WhatsApp Chat
+      </button>
+    </form>
+  </div>
+</div>
 
 <footer>
   <p>© 2026 Innova Digital Ltd · London, United Kingdom</p>
 </footer>
 
 <script>
+  let aiSelectedService = "";
+
+  function toggleAIModal() {
+    const modal = document.getElementById("ai-modal");
+    modal.style.display = modal.style.display === "block" ? "none" : "block";
+  }
+
+  function selectAIService(service) {
+    aiSelectedService = service;
+
+    const messages = document.getElementById("ai-messages");
+
+    messages.innerHTML += `
+      <div class="ai-message ai-user">${service}</div>
+      <div class="ai-message">
+        Great. The best next step is to schedule a diagnostic session or contact us on WhatsApp.
+      </div>
+    `;
+  }
+
+  function openAIWhatsApp() {
+    const phoneNumber = "447365928641";
+
+    const message =
+      `*New Inquiry - Innova Digital Ltd*%0A%0A` +
+      `*Source:* AI Assistant Floating Button%0A` +
+      `*Selected Service:* ${aiSelectedService || "Not selected"}%0A%0A` +
+      `Hello, I would like more information about Innova Digital services.`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  }
+
+  function toggleWhatsAppModal() {
+    const modal = document.getElementById("whatsapp-modal");
+    modal.style.display = modal.style.display === "none" || modal.style.display === "" ? "flex" : "none";
+  }
+
+  window.onclick = function(event) {
+    const whatsappModal = document.getElementById("whatsapp-modal");
+    if (event.target === whatsappModal) {
+      whatsappModal.style.display = "none";
+    }
+  };
+
+  document.getElementById("whatsappForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    const phoneNumber = "447365928641";
+
+    const message =
+      `*New Inquiry - Innova Digital Ltd*%0A%0A` +
+      `*Name:* ${data.name}%0A` +
+      `*Phone:* ${data.phone}%0A` +
+      `*Email:* ${data.email}%0A%0A` +
+      `*Service:* ${data.concern}%0A` +
+      `*Urgency:* ${data.urgency}%0A` +
+      `*Details:* ${data.notes || "None"}`;
+
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+    toggleWhatsAppModal();
+  });
+
   function goToBooking() {
     const url = "https://bookings.cloud.microsoft/book/DecisionArchitect@innovaiso.uk/?ismsaljsauthenabled=true&locale=en-GB";
-    const width = 800;
-    const height = 900;
-    const left = (window.innerWidth / 2) - (width / 2);
-    const top = (window.innerHeight / 2) - (height / 2);
-
-    window.open(url, "BookingPopup", `width=${width},height=${height},top=${top},left=${left},scrollbars=yes,resizable=yes`);
+    window.open(url, "BookingPopup", "width=800,height=900,scrollbars=yes");
   }
 </script>
 
